@@ -71,7 +71,7 @@ $(function() {
        });
      });
 
-    descibe("New Feed Selection", function(){
+    describe("New Feed Selection", function(){
       var feed1, feed2;
 
       beforeEach(function(done) { // asynchronous function to declare first feed
