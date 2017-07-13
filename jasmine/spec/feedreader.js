@@ -53,31 +53,40 @@ $(function() {
         });
 
         it('Menu changes visibility when clicked', function(){
-          menuIcon.click()
+          menuIcon.click();
           expect($('body').hasClass("menu-hidden")).toBe(false); //Checks if menu displays when clicked
-          menuIcon.click()
+          menuIcon.click();
           expect($('body').hasClass("menu-hidden")).toBe(true); //Checks if menu hides when clicked again
         });
       });
 
     describe("Initial Entries", function(){
 
-         beforeEach(function(done){ // asynchronous function to handle loadFeed
-           loadFeed(0, done);
-         });
-
-         it('loadFeed contains single .entry element in .feed container', function() {
-           expect($('.feed .entry').length).toBeGreaterThan(0);
-         });
+       beforeEach(function(done){ // asynchronous function to handle loadFeed
+         loadFeed(0, done);
        });
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
-    descibe("New Feed Selection", function(){
-
-
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
+       it('loadFeed contains single .entry element in .feed container', function() {
+         expect($('.feed .entry').length).toBeGreaterThan(0); //Checks if there is at least one entry
+       });
      });
+
+    descibe("New Feed Selection", function(){
+      var feed1, feed2;
+
+      beforeEach(function(done) { // asynchronous function to declare first feed
+          loadFeed(0, function() {
+              feed1 = $('.feed').html();
+              done();
+          });
+      });
+
+      it('Content changes when loadFeed runs a new feed', function(done) {
+          loadFeed(1, function() {
+              feed2 = $('.feed').html();
+              expect(feed2).not.toBe(feed1); // Checks if feeds are different, where content actually changes.
+              done();
+          });
+        });
+      });
 }());
