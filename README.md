@@ -12,7 +12,5 @@ git clone https://github.com/jpvergara16/Project-Nanodegree-Feed-Reader-Testing.
 * Open `index.html` with your browser.
 * There should be `8 specs, 0 failures` at the bottom of the html page.
 
-**Download zip file directly from github
-
-**Access the live version [here](https://jpvergara16.github.io/Project-Nanodegree-Feed-Reader-Testing/)
+**Download zip file directly from github [here](https://github.com/jpvergara16/Project-Nanodegree-Feed-Reader-Testing)**
 
